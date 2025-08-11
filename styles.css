@@ -1,0 +1,133 @@
+:root{
+  --bg: #0b1220;
+  --text: #0f172a;
+  --muted: #475569;
+  --brand: #0ea5e9;   /* primary (sky-500) */
+  --brand-dark: #0b7bb8;
+  --ghost: rgba(255,255,255,0.6);
+  --surface: #ffffff;
+  --surface-alt: #f6f8fb;
+  --ring: rgba(14,165,233,0.25);
+  --ok: #16a34a;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+/* Layout */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 72px 0; }
+.section.alt { background: var(--surface-alt); }
+.grid.two { display: grid; gap: 28px; grid-template-columns: 1.1fr 0.9fr; }
+@media (max-width: 900px){ .grid.two { grid-template-columns: 1fr; } }
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e5e7eb;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark { display: block; }
+.brand-text { font-weight: 700; font-size: 18px; color: #0b172a; letter-spacing: 0.2px; }
+
+.main-nav a {
+  text-decoration: none; color: #0f172a; margin-left: 18px; font-weight: 500;
+}
+.main-nav a:hover { color: var(--brand-dark); }
+
+/* Hero */
+.hero { position: relative; height: 72vh; min-height: 520px; color: #fff; }
+.slider { position: absolute; inset: 0; overflow: hidden; }
+.slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; animation: fade 18s infinite;
+}
+.slide.s1 { background-image: url('https://source.unsplash.com/1600x900?corporate,office'); animation-delay: 0s; }
+.slide.s2 { background-image: url('https://source.unsplash.com/1600x900?finance,meeting'); animation-delay: 6s; }
+.slide.s3 { background-image: url('https://source.unsplash.com/1600x900?government,building'); animation-delay: 12s; }
+
+@keyframes fade {
+  0%, 17% { opacity: 1; }
+  33%, 100% { opacity: 0; }
+}
+
+.hero-overlay {
+  position: relative; z-index: 2; inset: 0;
+  background: linear-gradient(180deg, rgba(9,11,22,0.55), rgba(9,11,22,0.65));
+  height: 100%;
+  display: flex; align-items: center;
+}
+.hero-content { max-width: 860px; }
+.hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 10px; font-weight: 800; }
+.tagline { font-size: 18px; color: #e2e8f0; margin: 0 0 24px; }
+
+.cta-group { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 44px; padding: 0 18px; border-radius: 10px; text-decoration: none;
+  font-weight: 600; letter-spacing: .2px;
+}
+.btn.primary { background: var(--brand); color: #062338; box-shadow: 0 8px 24px var(--ring); }
+.btn.primary:hover { background: var(--brand-dark); }
+.btn.ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.btn.whats { background: #25D366; color: #062338; }
+.micro-hint { font-size: 12px; color: #d1d5db; }
+
+/* About */
+.about-card {
+  background: var(--surface); border: 1px solid #e5e7eb; border-radius: 12px; padding: 22px;
+  box-shadow: 0 6px 22px rgba(2, 8, 23, 0.06);
+}
+.ticks { list-style: none; padding: 0; margin: 0; }
+.ticks li { padding-left: 28px; position: relative; margin: 8px 0; }
+.ticks li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; color: var(--ok); font-weight: 700;
+}
+
+/* Cards */
+.cards { display: grid; gap: 18px; grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1100px){ .cards { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px){ .cards { grid-template-columns: repeat(1, 1fr); } }
+.card {
+  background: var(--surface); border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px;
+  box-shadow: 0 6px 22px rgba(2, 8, 23, 0.06);
+}
+.card .icon { font-size: 26px; }
+.card h3 { margin: 10px 0 8px; }
+
+/* Emphasis cards */
+.emphasis { border-left: 4px solid var(--brand); }
+
+/* FAQs */
+.faq { background: var(--surface); border: 1px solid #e5e7eb; border-radius: 12px; margin: 10px 0; padding: 12px 16px; }
+.faq summary { cursor: pointer; font-weight: 600; outline: none; }
+.faq-body { margin-top: 10px; color: var(--muted); }
+
+/* Contact */
+.contact .contact-card {
+  background: var(--surface); border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px;
+}
+
+/* Floating WhatsApp */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; width: 56px; height: 56px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center; z-index: 50;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  background: #25D366;
+}
+.wa-float:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.wa-float svg { width: 28px; height: 28px; }
+
+/* Footer */
+.site-footer { background: #0b1220; color: #cbd5e1; padding: 28px 0; }
+.footer-inner { text-align: center; }
+.site-footer .disclaimer { font-size: 13px; color: #94a3b8; margin: 6px auto 0; max-width: 820px; }
