@@ -25,11 +25,23 @@
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#fees">Fees & Timeline</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#contact">Contact</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#fees">Fees & Timeline</a>
+          <a href="#faqs">FAQs</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger"></span>
+        </button>
+        <div class="nav-dropdown" id="mobileMenu" tabindex="-1" aria-hidden="true">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#fees">Fees & Timeline</a>
+          <a href="#faqs">FAQs</a>
+          <a href="#contact">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -245,5 +257,65 @@
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  // Responsive mobile menu interactivity
+  const navToggle = document.querySelector('.nav-toggle');
+  const navDropdown = document.getElementById('mobileMenu');
+  const navLinks = navDropdown.querySelectorAll('a');
+
+  function closeMenu() {
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navDropdown.classList.remove('open');
+    navDropdown.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  navToggle.addEventListener('click', function(e) {
+    const isOpen = navToggle.classList.toggle('open');
+    navDropdown.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navDropdown.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if(isOpen) navDropdown.focus();
+  });
+
+  // Close menu when clicking a link
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (
+      navDropdown.classList.contains('open') &&
+      !navDropdown.contains(e.target) &&
+      !navToggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  // Trap focus inside menu when open (accessibility)
+  navDropdown.addEventListener('keydown', function(e) {
+    if (!navDropdown.classList.contains('open')) return;
+    const focusable = Array.from(navDropdown.querySelectorAll('a'));
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.key === 'Tab') {
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    if (e.key === 'Escape') {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+</script>
 </body>
 </html>
