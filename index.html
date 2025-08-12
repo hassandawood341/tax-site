@@ -1,264 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- CHANGE: PAGE_TITLE -->
-  <title>PrimeLedger Tax Advisory — File right. Stay compliant. Grow with confidence.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Expert tax return filing for individuals and businesses. Fast, compliant, and affordable.">
-</head>
-  <script>
-  // Close nav on link click (mobile)
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-    });
-  });
-  </script>
-<body>
+/* -------------------------------
+   PrimeLedger Tax Advisory Styles
+---------------------------------- */
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <!-- CHANGE: LOGO_MARK and BUSINESS_NAME -->
-      <a class="brand" href="#home" aria-label="Go to top">
-        <!-- Simple inline SVG logo mark (you can replace) -->
-        <svg class="logo-mark" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z" fill="#0ea5e9"/>
-          <path d="M9 12l2 2 4-4" stroke="#0b7bb8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-text">PrimeLedger Tax Advisory</span>
-      </a>
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0ea5e9; /* sky-500 */
+  --accent-600: #0284c7; /* sky-600 */
+  --border: #e5e7eb;
+  --surface: #f8fafc;
+  --header-height: 64px;
+  --radius: 10px;
+}
 
-      <!-- Mobile-friendly nav -->
-<nav class="main-nav" aria-label="Primary">
-  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.body.classList.toggle('nav-open')">
-    ☰
-  </button>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#fees">Fees & Timeline</a>
-    <a href="#faqs">FAQs</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-    </div>
-  </header>
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  <!-- Hero Slider -->
-  <section id="home" class="hero">
-    <div class="slider">
-      <div class="slide s1" role="img" aria-label="Modern corporate tax office image"></div>
-      <div class="slide s2" role="img" aria-label="Professional team reviewing financial documents"></div>
-      <div class="slide s3" role="img" aria-label="Government building exterior representing compliance"></div>
-    </div>
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
 
-    <div class="hero-overlay">
-      <div class="container hero-content">
-        <!-- CHANGE: TAGLINE_TEXT -->
-        <h1>Expert tax return filing for individuals and businesses</h1>
-        <p class="tagline">File right. Stay compliant. Grow with confidence.</p>
-        <div class="cta-group">
-          <!-- CHANGE: GOOGLE_FORM_LINK -->
-          <a class="btn primary" href="#" target="_blank" rel="noopener">
-            Start your filing
-          </a>
-          <!-- CHANGE: GOOGLE_DRIVE_LINK -->
-          <a class="btn ghost" href="#" target="_blank" rel="noopener">
-            Read tax laws (PDF)
-          </a>
-        </div>
-        <p class="micro-hint">
-          Note: “Start your filing” opens the Google Form; “Read tax laws” opens your Google Drive PDF in a new tab.
-        </p>
-      </div>
-    </div>
-  </section>
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="container grid two">
-      <div>
-        <h2>About</h2>
-        <!-- CHANGE: ABOUT_TEXT -->
-        <p>
-          PrimeLedger is led by <strong>Dawood Hassan</strong>, a seasoned practitioner with comprehensive experience across
-          all categories of tax returns. We deliver precise, compliant filings at accessible fees—without compromises—so you
-          can move from paperwork to peace of mind, fast.
-        </p>
-        <p>
-          Our approach is straightforward: disciplined process, clear communication, and measurable outcomes. From salaried
-          individuals to growing businesses, we handle the details so you can focus on results.
-        </p>
-      </div>
-      <div class="about-card">
-        <ul class="ticks">
-          <li>End-to-end filing and compliance</li>
-          <li>Document review and error checks</li>
-          <li>Fast turnaround and proactive updates</li>
-          <li>Transparent, affordable pricing</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  <!-- Services -->
-  <section id="services" class="section alt">
-    <div class="container">
-      <h2>Services</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="icon">🧾</div>
-          <h3>Salaried tax return</h3>
-          <p>Accurate declarations, benefit optimization, and confident compliance for salaried professionals.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🏢</div>
-          <h3>Business tax return</h3>
-          <p>Thorough filings for sole proprietors, partnerships, and SMEs—structured for clarity and audit‑readiness.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🆔</div>
-          <h3>NTN registration</h3>
-          <p>Swift registration and guidance so your tax identity is set up correctly from day one.</p>
-        </div>
-        <div class="card">
-          <div class="icon">💱</div>
-          <h3>Sales tax</h3>
-          <p>Registration, returns, and reconciliations with disciplined record‑keeping and on‑time submissions.</p>
-        </div>
-        <div class="card">
-          <div class="icon">💼</div>
-          <h3>Tax advisory</h3>
-          <p>Practical, scenario‑based advice to reduce risk, align with law, and plan ahead with confidence.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.container {
+  width: min(1120px, 92vw);
+  margin-inline: auto;
+}
 
-  <!-- Fees & Timeline -->
-  <section id="fees" class="section">
-    <div class="container">
-      <h2>Fees & timeline</h2>
-      <div class="grid two">
-        <div class="card emphasis">
-          <h3>Timeline</h3>
-          <p><strong>2–4 working days</strong> after receiving complete documents.</p>
-        </div>
-        <div class="card emphasis">
-          <h3>Fees</h3>
-          <ul class="ticks">
-            <li><strong>Government employees:</strong> PKR 500</li>
-            <li><strong>All other clients:</strong> PKR 1,000</li>
-          </ul>
-          <p class="note">Transparent pricing. No surprises.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+/* Header / Nav */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  height: var(--header-height);
+}
 
-  <!-- FAQs -->
-  <section id="faqs" class="section alt">
-    <div class="container">
-      <h2>FAQs</h2>
+.header-row {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 
-      <details class="faq">
-        <summary>What documents do I need to get started?</summary>
-        <div class="faq-body">
-          <!-- CHANGE: You may add/remove items to fit each case -->
-          <ul>
-            <li>Full‑year salary slips (if salaried)</li>
-            <li>Details of any increase in assets (property, vehicle, investments)</li>
-            <li>Any home loan or financing details</li>
-            <li>CNIC and contact information</li>
-            <li>Optional: bank statements, withholding certificates, business records (if applicable)</li>
-          </ul>
-        </div>
-      </details>
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
 
-      <details class="faq">
-        <summary>How long will filing take?</summary>
-        <div class="faq-body">
-          <p>We typically complete filings within <strong>2–4 working days</strong> after we receive all required documents.</p>
-        </div>
-      </details>
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--accent);
+}
 
-      <details class="faq">
-        <summary>What are your fees?</summary>
-        <div class="faq-body">
-          <p>
-            <strong>Government employees:</strong> PKR 500<br>
-            <strong>All other clients:</strong> PKR 1,000
-          </p>
-          <p>These fees cover document review and e‑filing. If a case requires additional services, we’ll confirm before proceeding.</p>
-        </div>
-      </details>
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
-      <details class="faq">
-        <summary>How do you handle my data?</summary>
-        <div class="faq-body">
-          <p>
-            Your data is treated as our responsibility. We handle it confidentially, use it only for your engagement, and
-            do not share it without your consent.
-          </p>
-        </div>
-      </details>
+.nav-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 22px;
+  line-height: 1;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--text);
+  display: none; /* hidden on desktop */
+}
 
-    </div>
-  </section>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
 
-  <!-- Contact CTA -->
-  <section id="contact" class="section contact">
-    <div class="container grid two">
-      <div>
-        <h2>Ready to file?</h2>
-        <p>Click “Start your filing” to submit your details, or message us on WhatsApp for quick assistance.</p>
-        <div class="cta-group">
-          <!-- CHANGE: GOOGLE_FORM_LINK -->
-          <a class="btn primary" href="#" target="_blank" rel="noopener">Start your filing</a>
-          <!-- CHANGE: WHATSAPP_NUMBER and WHATSAPP_MESSAGE -->
-          <a class="btn whats" href="https://wa.me/923045392476?text=Hello%20I%20want%20to%20file%20my%20tax%20return" target="_blank" rel="noopener">
-            Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-      <div class="contact-card">
-        <h3>What to expect</h3>
-        <ol>
-          <li>Share your details via the form or WhatsApp.</li>
-          <li>Receive a checklist + secure document request.</li>
-          <li>We review, file, and confirm within 2–4 working days.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
+.nav-links a {
+  color: var(--muted);
+  font-weight: 600;
+  padding: 8px 0;
+}
 
-  <!-- Floating WhatsApp Button -->
-  <!-- CHANGE: WHATSAPP_NUMBER and WHATSAPP_MESSAGE -->
-  <a class="wa-float" href="https://wa.me/923045392476?text=Hello%20I%20want%20to%20file%20my%20tax%20return" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path fill="#25D366" d="M19.11 5.16A10.77 10.77 0 004.87 18.3l-1 3.77 3.86-1a10.72 10.72 0 005.15 1.32h.01A10.77 10.77 0 0019.1 5.16z"/>
-      <path fill="#fff" d="M23.7 19.13c-.36 1-1.79 1.9-2.52 1.94-.64.04-1.46.06-2.36-.15-.54-.12-1.23-.4-2.13-.83-3.76-1.82-6.2-5.96-6.39-6.23-.19-.26-1.53-2.03-1.53-3.87 0-1.84.97-2.74 1.32-3.12.35-.38.76-.48 1.02-.48.25 0 .51 0 .74.01.24.01.55-.09.86.66.32.77 1.1 2.65 1.2 2.84.1.19.16.42.03.68-.13.26-.2.42-.39.65-.19.22-.41.5-.59.67-.19.19-.38.4-.16.78.22.38.97 1.6 2.08 2.59 1.43 1.26 2.64 1.66 3.02 1.84.39.19.62.16.85-.1.22-.26.98-1.15 1.24-1.55.26-.39.52-.33.86-.2.35.13 2.18 1.03 2.56 1.22.38.19.63.29.72.45.1.16.1.93-.26 1.93z"/>
-    </svg>
-  </a>
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+}
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> PrimeLedger Tax Advisory. All rights reserved.</p>
-      <p class="disclaimer">
-        Disclaimer: This site provides filing services and general information. It is not a substitute for legal advice.
-      </p>
-    </div>
-  </footer>
+/* Hero */
+.hero {
+  padding: 64px 0 28px;
+}
 
-  <script>
-    // Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
+.hero-title {
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
 
-</html>
+.hero-subtitle {
+  margin: 0 0 24px 0;
+  color: var(--muted);
+  font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0 6px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, color 120ms ease,
+    border-color 120ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-600);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: #cbd5e1;
+}
+
+.helper-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Sections */
+.section {
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.section:nth-of-type(odd) {
+  background: var(--surface);
+}
+
+.section h2 {
+  margin: 0 0 12px 0;
+  font-size: clamp(20px, 3.5vw, 28px);
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+details {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 10px 0;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  padding: 18px 0 28px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Mobile styles */
+@media (max-width: 700px) {
+  /* Prevent background scroll when menu is open */
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  .nav-toggle {
+    display: inline-flex; /* show hamburger */
+  }
+
+  /* Turn links into a dropdown panel */
+  .nav-links {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 20px;
+    gap: 0;
+  }
+
+  body.nav-open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 2px;
+    border-bottom: 1px solid #eef2f7;
+    font-size: 16px;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    height: 48px;
+  }
+}
+
+/* Larger screens: give nav links comfortable spacing */
+@media (min-width: 701px) {
+  .nav-links a {
+    padding: 10px 4px;
+    font-size: 15px;
+  }
+}
