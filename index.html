@@ -9,6 +9,14 @@
   <link rel="stylesheet" href="styles.css" />
   <meta name="description" content="Expert tax return filing for individuals and businesses. Fast, compliant, and affordable.">
 </head>
+  <script>
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+    });
+  });
+  </script>
 <body>
 
   <!-- Header -->
@@ -24,13 +32,19 @@
         <span class="brand-text">PrimeLedger Tax Advisory</span>
       </a>
 
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#fees">Fees & Timeline</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <!-- Mobile-friendly nav -->
+<nav class="main-nav" aria-label="Primary">
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="document.body.classList.toggle('nav-open')">
+    ☰
+  </button>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#fees">Fees & Timeline</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
     </div>
   </header>
 
@@ -246,4 +260,5 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
