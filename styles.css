@@ -247,3 +247,78 @@ body {
   transform: rotate(-45deg) translate(7px,-7px);
   top: 0;
 }
+
+/* Professional Modal Pop-up */
+.modal-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(9,17,33,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: modal-fade-in 0.3s;
+}
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(2,8,23,0.18);
+  max-width: 420px;
+  width: 92vw;
+  padding: 32px 24px 20px 24px;
+  position: relative;
+  text-align: left;
+  border-top: 6px solid var(--brand);
+  animation: modal-slide-in 0.3s;
+}
+@keyframes modal-slide-in {
+  from { transform: translateY(-40px) scale(0.97);}
+  to { transform: translateY(0) scale(1);}
+}
+.modal-icon {
+  display: block;
+  margin: 0 auto 8px auto;
+}
+.modal-content h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.35rem;
+  color: var(--brand-dark);
+  text-align: center;
+  font-weight: 700;
+}
+.modal-message {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.modal-message ul {
+  margin: 8px 0 12px 18px;
+  padding: 0 0 0 16px;
+}
+.modal-message hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 16px 0;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #475569;
+  cursor: pointer;
+  transition: color 0.18s;
+}
+.modal-close:hover { color: var(--brand-dark); }
+
+@media (max-width: 500px) {
+  .modal-content { padding: 20px 8px 12px 8px; }
+  .modal-content h2 { font-size: 1.1rem; }
+  .modal-message { font-size: 0.98rem; }
+}
